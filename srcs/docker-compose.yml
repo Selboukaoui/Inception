@@ -85,6 +85,13 @@ services:
     container_name: netdata
     ports:
       - "19999:19999"
+    volumes:
+      - netdata_lib:/var/lib/netdata
+      - netdata_cache:/var/cache/netdata
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
     networks:
       - inception
     restart: always
@@ -102,6 +109,19 @@ volumes:
       o: bind
       type: none
       device: /home/selbouka/data/mariadb
+#bonus
+  netdata_lib:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/selbouka/data/netdata/lib
+  netdata_cache:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: /home/selbouka/data/netdata/cache
 
 networks:
   inception:
