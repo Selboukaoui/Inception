@@ -24,4 +24,13 @@ wp core install --allow-root --url=${URL} --title="BOOOM" --admin_user=${WP_ADMI
 wp user create  --allow-root "${WP_USER}" "${WP_USER_EMAIL}" --user_pass="${WP_USER_PASSWORD}" --role=author
 
 
+# bonus
+wp plugin install redis-cache --activate --allow-root
+
+wp config set WP_REDIS_HOST ${WP_REDIS_HOST} --allow-root
+wp config set WP_REDIS_PORT ${WP_REDIS_PORT} --raw --allow-root
+wp config set WP_CACHE true --raw --allow-root
+
+wp redis enable --allow-root
+
 exec php-fpm7.4 -F -R 

@@ -14,6 +14,7 @@ services:
     container_name: wordpress
     depends_on:
       - mariadb
+      - redis
     volumes: 
       - wp_files:/var/www/html
     networks:
@@ -35,6 +36,29 @@ services:
     env_file:
       - .env
     restart: always
+#bonus redis
+  redis:
+    build: ./bonus/redis
+    container_name: redis
+    networks:
+      - inception
+    restart: always
+#bonus ftp
+  ftp:
+      build: ./bonus/ftp
+      container_name: ftp
+      depends_on:
+        - wordpress
+      ports:
+        - "21:21"
+        - "11110-11111:11110-11111"
+      volumes:
+        - wp_files:/var/www/html
+      networks:
+        - inception
+      env_file:
+        - .env
+      restart: always
 
 volumes:
   wp_files:
