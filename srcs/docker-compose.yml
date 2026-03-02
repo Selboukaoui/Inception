@@ -59,6 +59,15 @@ services:
       env_file:
         - .env
       restart: always
+#bonus static website
+  website:
+    build: ./bonus/website
+    container_name: website
+    ports:
+      - "1111:80"
+    networks:
+      - inception
+    restart: always
 
 volumes:
   wp_files:
