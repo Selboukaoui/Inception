@@ -8,6 +8,7 @@ mv wp-cli.phar /usr/local/bin/wp
 
 mkdir -p /var/www/html
 mkdir -p /run/php 
+
 sed -i 's|listen = /run/php/php7.4-fpm.sock|listen = 9000|' /etc/php/7.4/fpm/pool.d/www.conf
 
 
@@ -23,4 +24,4 @@ wp core install --allow-root --url=${URL} --title="BOOOM" --admin_user=${WP_ADMI
 wp user create  --allow-root "${WP_USER}" "${WP_USER_EMAIL}" --user_pass="${WP_USER_PASSWORD}" --role=author
 
 
-exec php-fpm7.4 -F -R
+exec php-fpm7.4 -F -R 
