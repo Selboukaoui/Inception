@@ -79,23 +79,23 @@ services:
     networks:
       - inception
     restart: always
-#bonus resources monitor
-  netdata:
-    build: ./bonus/netdata
-    container_name: netdata
+#bonus container monitor
+  portainer:
+    build: ./bonus/portainer
+    container_name: portainer
     ports:
-      - "19999:19999"
+      - "9000:9000"
     volumes:
-      - netdata_lib:/var/lib/netdata
-      - netdata_cache:/var/cache/netdata
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
     networks:
       - inception
+    group_add:
+      - "1001"
+    privileged: true
     restart: always
-
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
 volumes:
   wp_files:
     driver: local
@@ -109,20 +109,13 @@ volumes:
       o: bind
       type: none
       device: /home/selbouka/data/mariadb
-#bonus
-  netdata_lib:
+# bonus
+  portainer_data:
     driver: local
     driver_opts:
       o: bind
       type: none
-      device: /home/selbouka/data/netdata/lib
-  netdata_cache:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: /home/selbouka/data/netdata/cache
-
+      device: /home/selbouka/data/portainer
 networks:
   inception:
     driver: bridge
