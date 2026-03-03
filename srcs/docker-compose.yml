@@ -90,12 +90,7 @@ services:
       - portainer_data:/data
     networks:
       - inception
-    group_add:
-      - "1001"
-    privileged: true
     restart: always
-    environment:
-      - DOCKER_HOST=unix:///var/run/docker.sock
 volumes:
   wp_files:
     driver: local
