@@ -34,8 +34,9 @@ This project uses **bind mounts** (pointing to `/home/selbouka/data/`), giving d
 ### How AI Was Used
 
 
-AI (Claude) was used to understand certain concepts during development,
+- AI (Claude) was used to understand certain concepts during development,
 such as FTP connection modes (active vs passive).
+- AI was used to enhance the styling of my documentation for preview.
 
 
 ---
@@ -46,25 +47,18 @@ such as FTP connection modes (active vs passive).
 
 - Docker and Docker Compose installed
 - `make` available
-- Create data directories:
 
-```bash
-mkdir -p /home/selbouka/data/wordpress
-mkdir -p /home/selbouka/data/mariadb
-mkdir -p /home/selbouka/data/portainer
-```
 
 ### Build and Start
 
 ```bash
-cd srcs
-docker compose up --build -d
+make
 ```
 
 ### Stop
 
 ```bash
-docker compose down
+make stop
 ```
 
 ### Access

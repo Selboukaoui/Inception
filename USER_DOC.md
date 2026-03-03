@@ -15,7 +15,7 @@
 
 ---
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone git@github.com:Selboukaoui/Inception.git

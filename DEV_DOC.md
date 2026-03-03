@@ -1,5 +1,3 @@
-# DEV_DOC  Developer Documentation
-
 ## Setting Up From Scratch
 
 ### Prerequisites
@@ -15,17 +13,7 @@ git clone git@github.com:Selboukaoui/Inception.git
 cd inception
 ```
 
-### 2. Create Required Data Directories
-
-These bind mount paths must exist before starting the containers:
-
-```bash
-mkdir -p /home/selbouka/data/wordpress
-mkdir -p /home/selbouka/data/mariadb
-mkdir -p /home/selbouka/data/portainer
-```
-
-### 3. Configure Environment Variables
+### 2. Configure Environment Variables
 
 The configuration file is at `srcs/.env`. It is **not committed to git** (see `.gitignore`). Create or verify it contains:
 
