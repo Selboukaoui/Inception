@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 RUN apt-get update -y && apt-get install -y nginx openssl
 COPY tools/setup.sh  /setup.sh
 RUN chmod +x /setup.sh && /setup.sh

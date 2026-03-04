@@ -2,6 +2,7 @@ services:
   mariadb:
     build: ./requirements/mariadb
     container_name: mariadb
+    image: mariadb:smx
     volumes: 
       - wp_db:/var/lib/mysql
     networks:
@@ -12,6 +13,7 @@ services:
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
+    image: wordpress:smx
     depends_on:
       - mariadb
       - redis
@@ -25,6 +27,7 @@ services:
   nginx:
     build: ./requirements/nginx
     container_name: nginx
+    image: nginx:smx
     depends_on:
       - wordpress
     ports:
@@ -40,6 +43,7 @@ services:
   redis:
     build: ./bonus/redis
     container_name: redis
+    image: redis:smx
     networks:
       - inception
     restart: always
@@ -47,6 +51,7 @@ services:
   ftp:
       build: ./bonus/ftp
       container_name: ftp
+      image: ftp:smx
       depends_on:
         - wordpress
       ports:
@@ -63,6 +68,7 @@ services:
   website:
     build: ./bonus/website
     container_name: website
+    image: website:smx
     ports:
       - "1111:80"
     networks:
@@ -72,6 +78,7 @@ services:
   adminer:
     build: ./bonus/adminer
     container_name: adminer
+    image: adminer:smx
     depends_on:
       - mariadb
     ports:
@@ -83,6 +90,7 @@ services:
   portainer:
     build: ./bonus/portainer
     container_name: portainer
+    image: portainer:smx
     ports:
       - "9000:9000"
     volumes:

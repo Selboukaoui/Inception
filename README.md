@@ -16,7 +16,7 @@ Inception is a system administration project that uses Docker to set up a small 
 - **Adminer** —------------------ web-based database management UI
 - **Portainer** —----------------- Docker container monitoring dashboard
 - **Static Website** —----------- a simple bonus HTML site
-
+ 
 ### Design Choices
 
 **Virtual Machines vs Docker**

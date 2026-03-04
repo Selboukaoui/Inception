@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bookworm
 RUN apt-get update && apt-get install mariadb-server -y
 COPY tools/setup.sh /
 RUN chmod +x /setup.sh

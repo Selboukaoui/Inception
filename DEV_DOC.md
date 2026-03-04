@@ -16,7 +16,7 @@ cd inception
 ### 2. Configure Environment Variables
 
 The configuration file is at `srcs/.env`. It is **not committed to git** (see `.gitignore`). Create or verify it contains:
-
+ 
 ```env
 MYSQL_ROOT_PASSWORD=samir
 MYSQL_DATABASE=wordpress
