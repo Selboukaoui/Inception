@@ -3,7 +3,7 @@
 ### Prerequisites
 
 - Docker Engine (20.10+) and Docker Compose (v2+)
-- `make` (optional, if a Makefile is used)
+- `make`
 - A host machine running Linux
 
 ### 1. Clone the Repository
