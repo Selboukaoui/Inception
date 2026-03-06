@@ -9,7 +9,7 @@ services:
       - inception
     env_file:
       - .env
-    restart: always
+    restart: on-failure
   wordpress:
     build: ./requirements/wordpress
     container_name: wordpress
@@ -23,7 +23,7 @@ services:
       - inception
     env_file:
       - .env
-    restart: always
+    restart: on-failure
   nginx:
     build: ./requirements/nginx
     container_name: nginx
@@ -38,7 +38,7 @@ services:
       - inception
     env_file:
       - .env
-    restart: always
+    restart: on-failure
 #bonus redis
   redis:
     build: ./bonus/redis
@@ -46,7 +46,7 @@ services:
     image: redis:smx
     networks:
       - inception
-    restart: always
+    restart: on-failure
 #bonus ftp
   ftp:
       build: ./bonus/ftp
@@ -63,7 +63,7 @@ services:
         - inception
       env_file:
         - .env
-      restart: always
+      restart: on-failure
 #bonus static website
   website:
     build: ./bonus/website
@@ -73,7 +73,7 @@ services:
       - "1111:80"
     networks:
       - inception
-    restart: always
+    restart: on-failure
 #bonus adminer
   adminer:
     build: ./bonus/adminer
@@ -85,7 +85,7 @@ services:
       - "8080:8080"
     networks:
       - inception
-    restart: always
+    restart: on-failure
 #bonus container monitor
   portainer:
     build: ./bonus/portainer
@@ -98,7 +98,7 @@ services:
       - portainer_data:/data
     networks:
       - inception
-    restart: always
+    restart: on-failure
 volumes:
   wp_files:
     driver: local

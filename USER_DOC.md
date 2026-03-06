@@ -47,7 +47,7 @@ make clean && make
 
 | Service         | URL / Port                        |
 |-----------------|-----------------------------------|
-| WordPress       | https://selbouka.42.fr            |
+| WordPress       | https://login.42.fr            |
 | Adminer         | http://localhost:8080/adminer.php             |
 | Portainer       | http://localhost:9000             |
 | Static Website  | http://localhost:1111             |
@@ -61,21 +61,7 @@ make clean && make
 
 ## Credentials
 
-All credentials are defined in `srcs/.env`. Key values:
-
-| What              | Credential                    |
-|-------------------|-------------------------------|
-| WordPress Admin   | `selbouka_wp` / `samir`       |
-| WordPress User    | `user` / `user`               |
-| DB Name           | `wordpress`                   |
-| DB User           | `selbouka` / `samir`          |
-| FTP User          | `samir` / `ftp`               |
-
-To log into **Adminer**, use:
-- Server: `mariadb`
-- Username: `selbouka`
-- Password: `samir`
-- Database: `wordpress`
+All credentials are defined in `srcs/.env`.
 
 ---
 

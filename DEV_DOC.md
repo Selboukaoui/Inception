@@ -18,28 +18,32 @@ cd inception
 The configuration file is at `srcs/.env`. It is **not committed to git** (see `.gitignore`). Create or verify it contains:
  
 ```env
-MYSQL_ROOT_PASSWORD=samir
-MYSQL_DATABASE=wordpress
-MYSQL_USER=selbouka
-MYSQL_PASSWORD=samir
+MYSQL_ROOT_PASSWORD
+MYSQL_DATABASE
+MYSQL_USER
+MYSQL_PASSWORD
 
-WP_DB_HOST=mariadb
-WP_ADMIN=selbouka_wp
-WP_ADMIN_PASSWORD=samir
-WP_ADMIN_EMAIL=example@gmail.com
-URL=https://selbouka.42.fr
+WP_DB_HOST
+WP_ADMIN
+WP_ADMIN_PASSWORD
+WP_ADMIN_EMAIL
+URL
+SERVER_NAME
 
-WP_USER=user
-WP_USER_EMAIL=user@gmail.com
-WP_USER_PASSWORD=user
+WP_USER
+WP_USER_EMAIL
+WP_USER_PASSWORD
 
-WP_REDIS_HOST=redis
-WP_REDIS_PORT=6379
+# bonus
 
-FTP_USER=samir
-FTP_PASS=ftp
+# redis
+WP_REDIS_HOST
+WP_REDIS_PORT
+
+# ftp
+FTP_USER
+FTP_PASS
 ```
-
 ---
 
 ## Build and Launch
@@ -84,9 +88,9 @@ Data is stored on the host using **bind mounts**:
 
 | Volume         | Host Path                          | Container Path        |
 |----------------|------------------------------------|-----------------------|
-| WordPress files| `/home/selbouka/data/wordpress`    | `/var/www/html`       |
-| MariaDB data   | `/home/selbouka/data/mariadb`      | `/var/lib/mysql`      |
-| Portainer data | `/home/selbouka/data/portainer`    | `/data`               |
+| WordPress files| `/home/login/data/wordpress`    | `/var/www/html`       |
+| MariaDB data   | `/home/login/data/mariadb`      | `/var/lib/mysql`      |
+| Portainer data | `/home/login/data/portainer`    | `/data`               |
 
 Data in these directories **persists across container restarts and rebuilds**. To fully reset, stop containers and delete the contents of these directories manually.
 
