@@ -14,6 +14,9 @@ sed -i 's|listen = /run/php/php8.2-fpm.sock|listen = 9000|' /etc/php/8.2/fpm/poo
 
 cd /var/www/html
 
+while ! mysqladmin ping -h${WP_DB_HOST} -u${MYSQL_USER} -p${MYSQL_PASSWORD} --silent; do
+    sleep 2
+done
 
 wp core download --allow-root --version=5.8.1 --locale=en_US
 
