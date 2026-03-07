@@ -47,7 +47,7 @@ make clean && make
 
 | Service         | URL / Port                        |
 |-----------------|-----------------------------------|
-| WordPress       | https://login.42.fr            |
+| WordPress       | https://selbouka.42.fr            |
 | Adminer         | http://localhost:8080/adminer.php             |
 | Portainer       | http://localhost:9000             |
 | Static Website  | http://localhost:1111             |

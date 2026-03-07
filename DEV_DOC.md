@@ -88,9 +88,9 @@ Data is stored on the host using **bind mounts**:
 
 | Volume         | Host Path                          | Container Path        |
 |----------------|------------------------------------|-----------------------|
-| WordPress files| `/home/login/data/wordpress`    | `/var/www/html`       |
-| MariaDB data   | `/home/login/data/mariadb`      | `/var/lib/mysql`      |
-| Portainer data | `/home/login/data/portainer`    | `/data`               |
+| WordPress files| `/home/selbouka/data/wordpress`    | `/var/www/html`       |
+| MariaDB data   | `/home/selbouka/data/mariadb`      | `/var/lib/mysql`      |
+| Portainer data | `/home/selbouka/data/portainer`    | `/data`               |
 
 Data in these directories **persists across container restarts and rebuilds**. To fully reset, stop containers and delete the contents of these directories manually.
 

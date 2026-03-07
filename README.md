@@ -29,7 +29,10 @@ This project uses `.env` files for simplicity. In production, Docker Secrets are
 All services use a custom bridge network (`inception`). This isolates containers from the host and from unrelated containers, while still allowing inter-service communication by name (e.g., `wordpress:9000`). Host networking removes that isolation.
 
 **Docker Volumes vs Bind Mounts**
-This project uses **bind mounts** (pointing to `/home/login/data/`), giving direct access to data from the host. Named volumes are more portable but less transparent. Bind mounts are a deliberate choice here for easy inspection and persistence across rebuilds.
+Named volumes are managed by Docker and store data in Docker's internal storage, while
+bind mounts link directly to a host path. This project uses **named volumes backed by
+host paths** (`/home/selbouka/data/`) to satisfy the subject requirement of storing data
+at a specific location on the host, while still being managed as proper Docker named volumes.
 
 ### How AI Was Used
 
@@ -65,7 +68,7 @@ make stop
 
 | Service         | URL / Port                        |
 |-----------------|-----------------------------------|
-| WordPress       | https://login.42.fr            |
+| WordPress       | https://selbouka.42.fr            |
 | Adminer         | http://localhost:8080/adminer.php             |
 | Portainer       | http://localhost:9000             |
 | Static Website  | http://localhost:1111             |
