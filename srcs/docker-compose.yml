@@ -74,7 +74,7 @@ services:
     networks:
       - inception
     restart: on-failure
-#bonus adminer
+#bonus adminer 
   adminer:
     build: ./bonus/adminer
     container_name: adminer

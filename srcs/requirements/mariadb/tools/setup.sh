@@ -10,4 +10,3 @@ mariadb -e "FLUSH PRIVILEGES;"
 mysqladmin shutdown
 
 exec mysqld --bind-address=0.0.0.0 --user=mysql
-

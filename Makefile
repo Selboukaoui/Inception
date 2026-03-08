@@ -21,5 +21,3 @@ clean: down
 	@sudo rm -rf /home/selbouka/data/wordpress/*
 	@sudo rm -rf /home/selbouka/data/mariadb/*
 	@sudo rm -rf /home/selbouka/data/portainer/*
-
-

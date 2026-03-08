@@ -15,7 +15,7 @@ cd inception
 
 ### 2. Configure Environment Variables
 
-The configuration file is at `srcs/.env`. It is **not committed to git** (see `.gitignore`). Create or verify it contains:
+The configuration file is at `srcs/.env`. It is **not committed to git** (see `.gitignore`):
  
 ```env
 MYSQL_ROOT_PASSWORD
@@ -77,7 +77,7 @@ docker exec -it <container_name> bash
 docker compose down
 
 # Stop and remove volumes (full reset)
-docker compose down -v
+docker compose down
 ```
 
 ---

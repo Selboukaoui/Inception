@@ -36,4 +36,4 @@ wp config set WP_CACHE true --raw --allow-root
 
 wp redis enable --allow-root
 
-exec php-fpm8.2 -F 
+exec php-fpm8.2 -F
