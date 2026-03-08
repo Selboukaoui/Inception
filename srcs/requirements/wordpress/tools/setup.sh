@@ -18,22 +18,26 @@ while ! mysqladmin ping -h${WP_DB_HOST} -u${MYSQL_USER} -p${MYSQL_PASSWORD} --si
     sleep 2
 done
 
-wp core download --allow-root --version=5.8.1 --locale=en_US
 
-wp config create --allow-root --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbhost=${WP_DB_HOST} --dbpass=${MYSQL_PASSWORD}
+if [ ! -f /var/www/html/wp-config.php ]; then
 
-wp core install --allow-root --url=${URL} --title="Hello from 1337" --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
+    wp core download --allow-root --version=5.8.1 --locale=en_US
 
-wp user create  --allow-root "${WP_USER}" "${WP_USER_EMAIL}" --user_pass="${WP_USER_PASSWORD}" --role=author
+    wp config create --allow-root --dbname=${MYSQL_DATABASE} --dbuser=${MYSQL_USER} --dbhost=${WP_DB_HOST} --dbpass=${MYSQL_PASSWORD}
+
+    wp core install --allow-root --url=${URL} --title="Hello from 1337" --admin_user=${WP_ADMIN} --admin_password=${WP_ADMIN_PASSWORD} --admin_email=${WP_ADMIN_EMAIL}
+
+    wp user create  --allow-root "${WP_USER}" "${WP_USER_EMAIL}" --user_pass="${WP_USER_PASSWORD}" --role=author
 
 
-# bonus
-wp plugin install redis-cache --activate --allow-root
+    # bonus
+    wp plugin install redis-cache --activate --allow-root
 
-wp config set WP_REDIS_HOST ${WP_REDIS_HOST} --allow-root
-wp config set WP_REDIS_PORT ${WP_REDIS_PORT} --raw --allow-root
-wp config set WP_CACHE true --raw --allow-root
+    wp config set WP_REDIS_HOST ${WP_REDIS_HOST} --allow-root
+    wp config set WP_REDIS_PORT ${WP_REDIS_PORT} --raw --allow-root
+    wp config set WP_CACHE true --raw --allow-root
 
-wp redis enable --allow-root
+    wp redis enable --allow-root
+fi
 
 exec php-fpm8.2 -F

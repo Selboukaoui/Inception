@@ -2,7 +2,7 @@
 
 ### Prerequisites
 
-- Docker Engine (20.10+) and Docker Compose (v2+)
+- Docker Engine and Docker Compose 
 - `make`
 - A host machine running Linux
 
